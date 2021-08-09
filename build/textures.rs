@@ -420,7 +420,7 @@ fn build_texture<W: Write>(dest: &mut W, ty: TextureType, dimensions: TextureDim
                 (writeln!(dest, "
                             impl<'a> AsUniformValue for &'a {myname} {{
                                 #[inline]
-                                fn as_uniform_value(&self) -> UniformValue {{
+                                fn as_uniform_value(&self) -> UniformValue<'a> {{
                                     UniformValue::{myname}(*self, None)
                                 }}
                             }}
